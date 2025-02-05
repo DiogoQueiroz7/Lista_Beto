@@ -1,13 +1,13 @@
-#Escreva uma função que receba uma lista de tuplas, onde cada tupla contém
-#números inteiros. Utilize map e filter para filtrar as tuplas cuja média dos valores
-#seja maior que 5.
-#Exemplo de entrada: [(2, 8), (4, 5, 6), (1, 2)]
-#Exemplo de saída: [(2, 8), (4, 5, 6)]
+def filtrar_num(lista):
+    def media_tuple(x):
+        return sum(x) / len(x)
 
-def filtrar(num):
-    return tuple(map(lambda x: x+x/x, filter(lambda x: x>5, num)))
+    medias = list(map(media_tuple, lista))
 
-num = [(1,2,3,4,5), (2,3), (4,6,7)]
-result = filtrar(num)
+    resultado = list(filter(lambda x: media_tuple(x) >= 5, lista))
 
-print(result)
+    return resultado
+
+lista_num = [(2, 8), (4, 5, 6), (1, 2)]
+
+print(filtrar_num(lista_num))
